@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,500;0,700;1,400&display=swap");
 
 :root {
-  --primary-color: #047aed;
+  --primary-color: #24af9f;
 }
 
 * {
@@ -40,6 +40,21 @@ img {
   width: 100%;
 }
 
+.highlight {
+  color: black;
+  font-weight: bold;
+}
+
+.transition {
+  transition: 500ms;
+  transition-timing-function: ease;
+}
+
+.transition:hover {
+  color: black;
+  font-weight: 700;
+}
+
 /* Navbar */
 
 .navbar {
@@ -59,7 +74,7 @@ img {
 }
 
 .navbar a:hover {
-  border-bottom: 2px solid #fff;
+  border-bottom: 2px solid rgb(7, 4, 4);
 }
 
 .navbar .flex {
@@ -71,7 +86,7 @@ img {
 .showcase {
   height: 400px;
   background-color: var(--primary-color);
-  color: #fff;
+  color: rgb(245, 245, 245);
   position: relative;
 }
 
@@ -84,12 +99,67 @@ img {
 }
 
 .showcase .grid {
+  overflow: visible;
   grid-template-columns: 55% 45%;
   gap: 30px;
-  overflow: hidden;
+}
+
+.showcase__form {
+  position: relative;
+  top: 60px;
+  height: 350px;
+  width: 400px;
+  padding: 40px;
+  z-index: 1000;
+  justify-self: flex-end;
+}
+
+.showcase__form .form__control {
+  margin: 30px 0;
+}
+
+.showcase__form input[type="text"],
+.showcase__form input[type="email"] {
+  border: 0;
+  border-bottom: 1px solid var(--primary-color);
+  width: 100%;
+  padding: 3px;
+  font-size: 16px;
+}
+.showcase__form input:focus {
+  outline: n;
 }
 
 /* Generic */
+
+.card {
+  background-color: #fff;
+  color: #333;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  margin: 10px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 30px;
+  cursor: pointer;
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  transition: all 200ms ease;
+}
+
+.btn__outline {
+  background-color: transparent;
+  border: 1px #fff solid;
+}
+
+.btn:hover {
+  transform: scale(0.98);
+}
 
 .container {
   max-width: 1100px;
