@@ -2,6 +2,9 @@
 
 :root {
   --primary-color: #24af9f;
+  --secondary-color: #12635a;
+  --dark-color: #0e3b35;
+  --light-color: #f4f4f4;
 }
 
 * {
@@ -126,8 +129,109 @@ img {
   padding: 3px;
   font-size: 16px;
 }
+
 .showcase__form input:focus {
-  outline: n;
+  outline: none;
+}
+
+.showcase::before,
+.showcase::after {
+  content: "";
+  position: absolute;
+  height: 110px;
+  bottom: -72px;
+  right: 0;
+  left: 0;
+  background: #24af9f;
+  transform: skewY(-3deg);
+  -webkit-transform: skewY(-2deg);
+  -moz-transform: skewY(-2deg);
+  -ms-transform: skewY(-2deg);
+}
+
+/* Stats */
+
+.stats {
+  padding-top: 120px;
+}
+
+.stats__heading {
+  max-width: 500px;
+  margin: auto;
+}
+
+.stats .grid h3 {
+  font-size: 35px;
+}
+
+.stats .grid p {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* CLI */
+
+.cli .grid {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.cli .grid > *:first-child {
+  grid-column: 1 / span 2;
+  grid-row: 1 / span 2;
+}
+
+/* CLOUD */
+
+.cloud .grid {
+  grid-template-columns: 4fr 3fr;
+}
+
+/* Backgrounds & Coloured Buttons */
+.bg__primary,
+.btn__primary {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.bg__secondary,
+.btn__secondary {
+  background-color: var(--secondary-color);
+  color: #fff;
+}
+
+.bg__dark,
+.btn__dark {
+  background-color: var(--dark-color);
+  color: #fff;
+}
+
+.bg__light,
+.btn__light {
+  background-color: var(--light-color);
+  color: rgb(0, 0, 0);
+}
+
+/* Text Sizes */
+
+.lead {
+  font-size: 24px;
+}
+
+.sm {
+  font-size: 1rem;
+}
+
+.md {
+  font-size: 2rem;
+}
+
+.lg {
+  font-size: 3rem;
+}
+
+.xl {
+  font-size: 4rem;
 }
 
 /* Generic */
@@ -145,7 +249,6 @@ img {
   display: inline-block;
   padding: 10px 30px;
   cursor: pointer;
-  background: var(--primary-color);
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -159,6 +262,10 @@ img {
 
 .btn:hover {
   transform: scale(0.98);
+}
+
+.text__center {
+  text-align: center;
 }
 
 .container {
@@ -182,4 +289,92 @@ img {
   justify-content: center;
   align-items: center;
   height: 100%;
+}
+
+.grid__3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* MARGIN */
+
+.my__1 {
+  margin: 1rem 0;
+}
+
+.my__2 {
+  margin: 1.5rem 0;
+}
+
+.my__3 {
+  margin: 2rem 0;
+}
+
+.my__4 {
+  margin: 3rem 0;
+}
+
+.my__5 {
+  margin: 4rem 0;
+}
+
+.m__1 {
+  margin: 1rem;
+}
+
+.m2__2 {
+  margin: 1.5rem;
+}
+
+.m__3 {
+  margin: 2rem;
+}
+
+.m__4 {
+  margin: 3rem;
+}
+
+.m__5 {
+  margin: 4rem;
+}
+
+/* PADDING */
+
+.py__1 {
+  padding: 1rem 0;
+}
+
+.py__2 {
+  padding: 1.5rem 0;
+}
+
+.py__3 {
+  padding: 2rem 0;
+}
+
+.py__4 {
+  padding: 3rem 0;
+}
+
+.py__5 {
+  padding: 4rem 0;
+}
+
+.m__1 {
+  padding: 1rem;
+}
+
+.m__2 {
+  padding: 1.5rem;
+}
+
+.m__3 {
+  padding: 2rem;
+}
+
+.m__4 {
+  padding: 3rem;
+}
+
+.m__5 {
+  padding: 4rem;
 }
