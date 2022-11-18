@@ -5,6 +5,8 @@
   --secondary-color: #12635a;
   --dark-color: #14574e;
   --light-color: #f4f4f4;
+  --success-color: #5cb85c;
+  --fail-color: #d9534f;
 }
 
 * {
@@ -32,15 +34,22 @@ h1,
 h2 {
   font-weight: 300;
   line-height: 1.2;
-  margin: 10px 0;
+  margin: 12px 0;
 }
 
 p {
-  margin: 10px 0;
+  margin: 12px 0;
 }
 
 img {
   width: 100%;
+}
+
+code,
+pre {
+  background: #333;
+  color: #fff;
+  padding: 12px;
 }
 
 .highlight {
@@ -56,6 +65,11 @@ img {
 .transition:hover {
   color: black;
   font-weight: 700;
+}
+
+.hidden {
+  visibility: hidden;
+  height: 0;
 }
 
 /* Navbar */
@@ -107,6 +121,10 @@ img {
   gap: 30px;
 }
 
+.showcase__text {
+  animation: slideInFromLeft 1s ease-in;
+}
+
 .showcase__form {
   position: relative;
   top: 60px;
@@ -115,6 +133,8 @@ img {
   padding: 40px;
   z-index: 1000;
   justify-self: flex-end;
+  animation: slideInFromRight 1s ease-in;
+
 }
 
 .showcase__form .form__control {
@@ -153,6 +173,8 @@ img {
 
 .stats {
   padding-top: 120px;
+  animation: slideInFromBottom 1s ease-in;
+
 }
 
 .stats__heading {
@@ -209,7 +231,8 @@ img {
 
 /* FEATURES */
 
-.features__head img {
+.features__head img,
+.docs__head img {
   width: 200px;
   justify-self: flex-end;
 }
@@ -218,7 +241,7 @@ img {
   margin-right: 24px;
 }
 
-.features_sub--head  img {
+.features_sub--head img {
   width: 300px;
   justify-self: flex-end;
 }
@@ -228,16 +251,55 @@ img {
 }
 
 .features__main .grid > *:first-child {
-  grid-column: 1/span 3;
+  grid-column: 1 / span 3;
 }
 
 .features__main .grid > *:nth-child(2) {
-  grid-column: 1/span 2;
+  grid-column: 1 / span 2;
+}
+
+/* DOCS */
+.docs__main h3 {
+  margin: 24px 0;
+}
+
+.docs__main .grid {
+  grid-template-columns: 1fr 2fr;
+  align-items: flex-start;
+}
+
+.docs__main nav li {
+  font-size: 17px;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #ccc;
+}
+
+.docs__main a:hover {
+  font-weight: bold;
 }
 
 /* FOOTER */
 .footer .social a {
   margin: 0 10px;
+}
+
+/* TEXT COLOURS */
+
+.text__primary {
+  color: var(--primary-color);
+}
+
+.text__secondary {
+  color: var(--secondary-color);
+}
+
+.text__dark {
+  color: var(--dark-color);
+}
+
+.text__light {
+  color: var(--light-color);
 }
 
 /* Backgrounds & Coloured Buttons */
@@ -272,7 +334,6 @@ img {
 .btn__secondary a,
 .bg__dark a,
 .btn__dark a,
-.bg__light a,
 .btn__light a {
   color: #fff;
 }
@@ -296,6 +357,30 @@ img {
 
 .xl {
   font-size: 4rem;
+}
+
+/* ALERT */
+
+.alert {
+  background-color: var(--light-color);
+  padding: 12px 24px;
+  font-weight: bold;
+  margin: 16px 0;
+  text-align: justify;
+}
+
+.alert i {
+  margin-right: 8px;
+}
+
+.alert__success {
+  background-color: var(--success-color);
+  color: #fff;
+}
+
+.alert__error {
+  background-color: var(--fail-color);
+  color: #fff;
 }
 
 /* Generic */
@@ -443,6 +528,56 @@ img {
   padding: 4rem;
 }
 
+/* ANIMATIONS */
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+
+
+}
+
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+
+  
+}
+
+@keyframes slideInFromTop {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+
+  
+}
+@keyframes slideInFromBottom {
+  0% {
+    transform: translateY(100%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+
+  
+}
+
+
 /* TABLETS AND SMALL SMARTPHONES */
 
 @media (max-width: 768px) {
@@ -450,7 +585,9 @@ img {
   .showcase .grid,
   .stats .grid,
   .cli .grid,
-  .cloud .grid {
+  .cloud .grid,
+  .features__main .grid,
+  .docs__main .grid {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
   }
@@ -462,17 +599,37 @@ img {
   .showcase__text {
     text-align: center;
     margin-top: 40px;
+    animation: slideInFromTop 1s ease-in;
+
   }
 
   .showcase__form {
     justify-self: center;
     margin: auto;
+    animation: slideInFromBottom 1s ease-in;
   }
 
   .cli .grid > *:first-child {
     grid-column: 1;
     grid-row: 1;
   }
+
+  .features__head,
+  .features_sub--head,
+  .docs__head {
+    text-align: center;
+  }
+  .features__head img,
+  .features_sub--head img,
+  .docs__head img {
+    justify-self: center;
+  }
+
+  .features__main .grid>*:first-child,
+  .features__main .grid>*:nth-child(2) {
+    grid-column: 1;
+  }
+
 }
 
 /* Mobile */
